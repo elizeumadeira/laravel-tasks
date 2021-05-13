@@ -1,22 +1,19 @@
-# laravel-tasks [![License](http://jeremykenedy.com/license-mit.svg)]()
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+# laravel-tasks
 
-### Laravel-Tasks is a Complete Build of Laravel 5.2 with Individual User Task Lists
+### Laravel-Tasks is a Complete Build of Laravel 7 with Individual User Task Lists
 
 ##### COMPLETE WORKING BUILD - R2R.
 
-Laravel 5.2 with user authentication, password recovery, and individual user tasks lists. This also makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing.  Uses laravel ORM modeling and has CRUD (Create Read Update Delete) functionality for all tasks.
+Laravel 7 with user authentication, password recovery, and individual user tasks lists. This also makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing.  Uses laravel ORM modeling and has CRUD (Create Read Update Delete) functionality for all tasks.
 
-This has robust verbose examples using Laravel best practices.  The task list is a build out of https://laravel.com/docs/5.2/quickstart.
+This has robust verbose examples using Laravel best practices.  The task list is a build out of https://laravel.com/docs/7/quickstart.
 
-### Super easy setup, can be done in 5 minutes or less.
+Super easy setup, can be done in 5 minutes or less.
 
-###### A [Laravel](http://laravel.com/) 5.2.x with minimal [Bootstrap](http://getbootstrap.com) 3.5.x project.
+###### A [Laravel](http://laravel.com/) 7.x with minimal [Bootstrap](http://getbootstrap.com) 3.5.x project.
 | Laravel-Tasks Features  |
 | :------------ |
 |Built on [Laravel](http://laravel.com/) 5.2|
-|Uses [MySQL](https://github.com/mysql) Database|
-|Uses [Artisan](http://laravel.com/docs/5.2/artisan) to manage database migration, schema creations, and create/publish page controller templates|
 |Dependencies are managed with [COMPOSER](https://getcomposer.org/)|
 |CRUD (Create, Read, Update, Delete) Tasks Management|
 |User Registration with password reset via Email|
@@ -37,7 +34,7 @@ This has robust verbose examples using Laravel best practices.  The task list is
 8. From the projects root folder run `php artisan migrate`
 9. From the projects root folder run `composer dump-autoload`
 
-And thats it with the caveat of setting up and configuring your development environemnt. I recommend [VAGRANT](https://docs.vagrantup.com/v2/getting-started/) or the Laravel configured instance of Vagrant called [HOMESTEAD](http://laravel.com/docs/5.2/homestead).
+And thats it with the caveat of setting up and configuring your development environemnt. I recommend [VAGRANT](https://docs.vagrantup.com/v2/getting-started/) or the Laravel configured instance of Vagrant called [HOMESTEAD](http://laravel.com/docs/7/homestead).
 
 #### View the Project in Browser
 1. From the projects root folder run `php artisan serve`
@@ -59,14 +56,6 @@ And thats it with the caveat of setting up and configuring your development envi
 * ```/tasks-all```
 * ```/tasks-complete```
 * ```/tasks-incomplete```
-
-#### Laravel Developement Packages Used References
-* https://laravelcollective.com/docs/5.2/html
-* https://laravel.com/docs/5.2/authentication
-* https://laravel.com/docs/5.2/authorization
-* https://laravel.com/docs/5.2/quickstart
-* https://laravel.com/docs/5.2/routing
-* https://laravel.com/docs/5.0/schema
 
 ---
 
@@ -488,15 +477,3 @@ Note: Replace examples URI used in Vargrant/Homestead configuration file and use
 ## Enjoy
 
 ###### ~ **Jeremy**
-
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/6244570?v=4" width="100px;" alt="Jeremy Kenedy"/><br /><sub><b>Jeremy Kenedy</b></sub>](http://jeremykenedy.github.io/)<br />[💻](https://github.com/jeremykenedy/laravel-tasks/commits?author=jeremykenedy "Code") [🎨](#design-jeremykenedy "Design") |
-| :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

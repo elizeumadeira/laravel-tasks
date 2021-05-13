@@ -17,7 +17,7 @@
 
                 </div>
                 <div class="panel-footer">
-                    <a href="{{ route('tasks.index') }}" class="btn btn-sm btn-info" type="button">
+                    <a href="{{ route('tasks.index', locale()->current()) }}" class="btn btn-sm btn-info" type="button">
                         <span class="fa fa-reply" aria-hidden="true"></span> Back to Tasks
                     </a>
                 </div>

@@ -9,11 +9,14 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th colspan="3">Status</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th>Edited</th>
+                <th></th>
             </thead>
             <tbody>
                 @foreach ($tasks as $task)
-                    @include('tasks.partials.task-row')
+                    @include('tasks.partials.task-row', ['task' => $task])
                 @endforeach
             </tbody>
         </table>

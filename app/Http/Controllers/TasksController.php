@@ -33,8 +33,8 @@ class TasksController extends Controller
      */
     public function index()
     {
+        
         $user = Auth::user();
-
         return view('tasks.index', [
             'tasks'           => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->get(),
             'tasksInComplete' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '0')->get(),
@@ -47,7 +47,7 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index_all()
+    public function index_all($locale)
     {
         $user = Auth::user();
 
@@ -119,7 +119,7 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($locale, $id)
     {
         $task = Task::query()->findOrFail($id);
 
@@ -134,7 +134,7 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Task $task, Request $request, $id)
+    public function update($locale, Task $task, Request $request, $id)
     {
         $this->validate($request, $this->rules);
 
@@ -154,7 +154,7 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($locale, $id)
     {
         Task::findOrFail($id)->delete();
 

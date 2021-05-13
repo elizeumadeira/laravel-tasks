@@ -34,22 +34,22 @@
 
     </td>
 
-    <!-- Task Status Checkbox -->
-    <td>
-        {{--
-        {!! Form::model($task, array('action' => array('TasksController@update', $task->id), 'method' => 'PUT', 'class'=>'form-inline', 'role' => 'form')) !!}
-            <div class="checkbox">
-                <label for="completed">
-                    {!! Form::checkbox('completed', 1, $task->completed, ['id' => 'completed','onClick' => 'this.form.submit()']) !!}
-                </label>
-            </div>
-        {!! Form::close() !!}
-        --}}
+   
+
+     <!-- Task Created -->
+     <td>
+        {{ $task->created_at }}
+    </td>
+
+     <!-- Task Updated -->
+     <td>
+        {{ $task->updated_at }}
     </td>
 
     <!-- Task Edit Icon -->
     <td>
-        <a href="{{ route('tasks.edit', $task->id) }}" class="pull-right">
+        {{ locale()->current() }}
+        <a href="{{ route('tasks.edit', [locale()->current(), $task->id]) }}" class="pull-right">
             <span class="fa fa-pencil fa-fw" aria-hidden="true"></span>
             <span class="sr-only">Edit Task</span>
         </a>

@@ -70,6 +70,20 @@ return [
     'locale' => 'en',
 
     /*
+    In this update, we will set two languages
+    */
+    'supported_locales' => [
+        'en' => [
+            'name' => 'English',
+            'dir'  => 'ltr', // rtl/ltr
+        ],
+        'br' => [
+            'name' => 'Português (Brasil)',
+            'dir'  => 'ltr'
+        ],
+    ],
+
+    /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
     |--------------------------------------------------------------------------
@@ -161,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
+        App\Providers\LocaleServiceProvider::class,
     ],
 
     /*
@@ -210,7 +224,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Html'      => Collective\Html\HtmlFacade::class,
-
+        'Loc'       => App\Facades\Loc::class,
     ],
 
 ];

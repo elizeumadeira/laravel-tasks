@@ -129,7 +129,7 @@ class Locale
      */
     public function isSupported($locale)
     {
-        return in_array($locale, $this->supported());
+        return in_array($locale, array_keys($this->supported()));
     }
 
     /**

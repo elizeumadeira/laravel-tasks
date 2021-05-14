@@ -80,7 +80,7 @@ return [
             'decimal_separator' => '.',
             'thousand_separator' => ' ',
             'date_format' => 'm/d/Y',
-            'timestamp_format' => 'm/d/Y h:i:s A', // 2021/05/13 03:45:00 PM
+            'timestamp_format' => 'm/d/Y h:i:s A',
             'datatable_i18n_location' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json',
         ],
         'br' => [

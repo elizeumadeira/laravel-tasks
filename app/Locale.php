@@ -36,8 +36,6 @@ class Locale
     public function __construct($app)
     {
         $this->app = $app;
-        // dd($this->app->make('config')['app']['supported_locales']);
-        // dd($this->getConfiguredSupportedLocales());
     }
 
     /**

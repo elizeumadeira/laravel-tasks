@@ -22,8 +22,7 @@ class SetLocale
             return redirect(locale()->current() . '/' . $request->path());
         }
 
-        $locale = locale()->isSupported($desiredLocale) ? $desiredLocale : locale()->fallback();
-        locale()->set($locale);
+        locale()->set($desiredLocale);
         return $next($request);
     }
 }

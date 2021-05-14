@@ -1,16 +1,15 @@
 <?php
 
 Route::redirect('/', '/' . locale()->current(), 301);
-Auth::routes();
 
-// INSTANTIATE AUTH ROUTING AND ESTABLISH LOGOUT ROUTE
-Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['prefix' => '{locale}', 'where' => ['locale', '[a-zA-Z]{2}']], function () {
+    Auth::routes();
 
+    // INSTANTIATE AUTH ROUTING AND ESTABLISH LOGOUT ROUTE
+    Route::get('/logout', 'Auth\LoginController@logout');
 
     // PUBLIC HOMEPAGE ROUTE
-    // Route::view('/', 'welcome');
     Route::get('/', 'HomeController@index');
 
     // USER HOMEPAGE ROUTE

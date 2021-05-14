@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ locale()->current() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,7 +50,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li class="{{ Request::is('home') ? 'active' : '' }}"><a href="{{ url('/home') }}">Home</a></li>
+                        <li class="{{ Request::is('home') ? 'active' : '' }}"><a href="{{ url('/home') }}">{{ __('app.mainbar.home') }}</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -60,17 +60,26 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ __('app.mainbar.language') }}</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    @foreach(locale()->supported() as $locale => $name_locale)
+                                        <li class="@if($locale == locale()->current()) active @endif"><a href="{{ url('/' . $locale) }}"></i>{{ $name_locale }}</a></li>
+                                    @endforeach
+                                    {{-- <li class="active"><a href="{{ url('/en') }}"></i>English</a></li> --}}
+                                    {{-- <li class="{{  }}"><a href="{{ url('/pt') }}"></i>Português</a></li> --}}
+                                </ul>
+                            </li>
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Tasks <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ __('app.mainbar.task') }}<span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li class="{{ Request::is('tasks') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() .'/tasks') }}"><i class="fa fa-btn fa-tasks" aria-hidden="true"></i>Tasks Overview</a></li>
-                                    <li class="{{ Request::is('tasks-all') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() .'/tasks-all') }}"><i class="fa fa-btn fa-filter" aria-hidden="true"></i>All Tasks</a></li>
-                                    <li class="{{ Request::is('tasks-incomplete') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() .'/tasks-incomplete') }}"><i class="fa fa-btn fa-square-o" aria-hidden="true"></i>Incomplete Tasks</a></li>
-                                    <li class="{{ Request::is('tasks-complete') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() . '/tasks-complete') }}"><i class="fa fa-btn fa-check-square-o" aria-hidden="true"></i>Complete Tasks</a></li>
-                                    <li class="{{ Request::is('tasks/create') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() .'/tasks/create') }}"><i class="fa fa-btn fa-plus" aria-hidden="true"></i>Create Task</a></li>
+                                    <li class="{{ Request::is('tasks') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() .'/tasks') }}"><i class="fa fa-btn fa-tasks" aria-hidden="true"></i>{{ __('app.mainbar.tasklist.overview') }}</a></li>
+                                    <li class="{{ Request::is('tasks-all') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() .'/tasks-all') }}"><i class="fa fa-btn fa-filter" aria-hidden="true"></i>{{ __('app.mainbar.tasklist.all') }}</a></li>
+                                    <li class="{{ Request::is('tasks-incomplete') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() .'/tasks-incomplete') }}"><i class="fa fa-btn fa-square-o" aria-hidden="true"></i> {{ __('app.mainbar.tasklist.incomplete') }}</a></li>
+                                    <li class="{{ Request::is('tasks-complete') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() . '/tasks-complete') }}"><i class="fa fa-btn fa-check-square-o" aria-hidden="true"></i>{{ __('app.mainbar.tasklist.complete') }}</a></li>
+                                    <li class="{{ Request::is('tasks/create') ? 'active' : '' }}"><a href="{{ url('/'.locale()->current() .'/tasks/create') }}"><i class="fa fa-btn fa-plus" aria-hidden="true"></i>{{ __('app.mainbar.tasklist.create') }}</a></li>
                                 </ul>
                             </li>
 
@@ -79,7 +88,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out" aria-hidden="true"></i>{{ __('app.mainbar.logout') }}</a></li>
                                 </ul>
                             </li>
                         @endif

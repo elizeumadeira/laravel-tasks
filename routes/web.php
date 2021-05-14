@@ -1,5 +1,8 @@
 <?php
 
+// dd(locale()->supported());
+
+
 Route::redirect('/', '/' . locale()->current(), 301);
 Auth::routes();
 
@@ -8,8 +11,10 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['prefix' => '{locale}', 'where' => ['locale', '[a-zA-Z]{2}']], function () {
 
+
     // PUBLIC HOMEPAGE ROUTE
-    Route::view('/', 'welcome');
+    // Route::view('/', 'welcome');
+    Route::get('/', 'HomeController@index');
 
     // USER HOMEPAGE ROUTE
     Route::get('/home', 'HomeController@index');

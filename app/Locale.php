@@ -5,7 +5,15 @@ namespace App;
 class Locale
 {
 
-  /**
+    protected static $default_parameters_locale = [
+        'money_sign' => '$',
+        'decimal_separator' => ',',
+        'thousand_separator' => '.',
+        'date_format' => 'YYYY/mm/dd',
+        'timestamp_format' => 'YYYY/mm/dd H:i:s',
+
+    ];
+    /**
      * Cached copy of the configured supported locales
      *
      * @var string
@@ -27,6 +35,8 @@ class Locale
     public function __construct($app)
     {
         $this->app = $app;
+        // dd($this->app->make('config')['app']['supported_locales']);
+        // dd($this->getConfiguredSupportedLocales());
     }
 
     /**
@@ -37,6 +47,22 @@ class Locale
     public function current()
     {
         return $this->app->getLocale();
+    }
+
+    public function get_timestamp_format($timestamp)
+    {
+        //     var_dump($timestamp);
+        //     die();
+        //     $format_string = $this->getConfiguredSupportedLocales()['timestamp_format'];
+        //     $date = \DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
+        //     return $date->format($format_string);
+        $format_string = locale()->getConfiguredSupportedLocales()['timestamp_format'];
+        return $timestamp->format($format_string);
+    }
+
+    public function get_money_format()
+    {
+
     }
 
     /**
@@ -66,7 +92,7 @@ class Locale
      */
     public function dir()
     {
-        return $this->getConfiguredSupportedLocales()[$this->current()]['dir'];
+        return $this->getConfiguredSupportedLocales()['dir'];
     }
 
     /**
@@ -87,7 +113,12 @@ class Locale
      */
     public function supported()
     {
-        return array_keys($this->getConfiguredSupportedLocales());
+        $supported = [];
+        foreach($this->app->make('config')['app.supported_locales'] as $locale => $supported_specs){
+            $supported[$locale] = $supported_specs['name'];
+        }
+
+        return $supported;
     }
 
     /**
@@ -110,9 +141,8 @@ class Locale
     {
         // cache the array for future calls
         if (empty(static::$configuredSupportedLocales)) {
-            static::$configuredSupportedLocales = $this->app->make('config')['app.supported_locales'];
+            static::$configuredSupportedLocales = $this->app->make('config')['app.supported_locales'][$this->app->getLocale()];
         }
-
-        return static::$configuredSupportedLocales;
+        return array_replace_recursive(static::$default_parameters_locale, static::$configuredSupportedLocales);
     }
 }

@@ -76,10 +76,18 @@ return [
         'en' => [
             'name' => 'English',
             'dir'  => 'ltr', // rtl/ltr
+            'money_sign' => 'US$',
+            'decimal_separator' => '.',
+            'thousand_separator' => ' ',
+            'date_format' => 'm/d/Y',
+            'timestamp_format' => 'm/d/Y h:i:s A', // 2021/05/13 03:45:00 PM
         ],
         'br' => [
             'name' => 'Português (Brasil)',
-            'dir'  => 'ltr'
+            'dir'  => 'ltr',
+            'money_sign' => 'R$',
+            'date_format' => 'd/m/Y',
+            'timestamp_format' => 'd/m/Y H:i:s'
         ],
     ],
 

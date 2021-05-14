@@ -33,7 +33,6 @@ class TasksController extends Controller
      */
     public function index()
     {
-        
         $user = Auth::user();
         return view('tasks.index', [
             'tasks'           => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->get(),

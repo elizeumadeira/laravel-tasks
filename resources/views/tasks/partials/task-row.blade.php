@@ -38,17 +38,16 @@
 
      <!-- Task Created -->
      <td>
-        {{ $task->created_at }}
+        {{ locale()->get_timestamp_format($task->created_at) }}
     </td>
 
      <!-- Task Updated -->
      <td>
-        {{ $task->updated_at }}
+        {{ locale()->get_timestamp_format($task->updated_at) }}
     </td>
 
     <!-- Task Edit Icon -->
     <td>
-        {{ locale()->current() }}
         <a href="{{ route('tasks.edit', [locale()->current(), $task->id]) }}" class="pull-right">
             <span class="fa fa-pencil fa-fw" aria-hidden="true"></span>
             <span class="sr-only">Edit Task</span>

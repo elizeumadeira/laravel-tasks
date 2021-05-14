@@ -85,11 +85,19 @@ return [
         ],
         'br' => [
             'name' => 'Português (Brasil)',
-            'dir'  => 'rtl',
+            'dir'  => 'ltr',
             'money_sign' => 'R$',
             'date_format' => 'd/m/Y',
             'timestamp_format' => 'd/m/Y H:i:s',
             'datatable_i18n_location' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json',
+        ],
+        'ar' => [
+            'name' => 'عربى',
+            'dir'  => 'rtl',
+            'money_sign' => 'SR',
+            'date_format' => 'd/m/Y',
+            'timestamp_format' => 'd/m/Y H:i:s',
+            'datatable_i18n_location' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json',
         ],
     ],
 

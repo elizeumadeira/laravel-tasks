@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ locale()->current() }}">
+<html lang="{{ locale()->current() }}" dir="{{ locale()->get_direction() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +42,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url(locale()->current().'/') }}">
                         Laravel Task List
                     </a>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li class="{{ Request::is('home') ? 'active' : '' }}"><a href="{{ url('/home') }}">{{ __('app.mainbar.home') }}</a></li>
+                        <li class="{{ Request::is('home') ? 'active' : '' }}"><a href="{{ url(locale()->current().'/home') }}">{{ __('app.mainbar.home') }}</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

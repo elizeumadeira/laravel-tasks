@@ -100,7 +100,7 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store( Request $request)
     {
         $this->validate($request, $this->rules);
         $user = Auth::user();
@@ -108,7 +108,7 @@ class TasksController extends Controller
         $task['user_id'] = $user->id;
         Task::create($task);
 
-        return redirect('/tasks')->with('success', 'Task created');
+        return redirect(locale()->current().'/tasks')->with('success', 'Task created');
     }
 
     /**
@@ -143,7 +143,7 @@ class TasksController extends Controller
         $task->completed = $request->input('completed');
         $task->save();
 
-        return redirect('tasks')->with('success', 'Task Updated');
+        return redirect($locale.'/tasks')->with('success', 'Task Updated');
     }
 
     /**
@@ -157,6 +157,6 @@ class TasksController extends Controller
     {
         Task::findOrFail($id)->delete();
 
-        return redirect('/tasks')->with('success', 'Task Deleted');
+        return redirect($locale.'/tasks')->with('success', 'Task Deleted');
     }
 }

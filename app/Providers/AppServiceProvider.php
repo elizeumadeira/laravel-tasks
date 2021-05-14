@@ -14,13 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('timestamp', function ($timestamp) {
-            $formatted_timestamp = locale()->get_timestamp_format($timestamp);
-            /*
-            return "<?php echo 'Hello ' ?>";
-            */
-            return $formatted_timestamp;
-        });
+        
     }
 
     /**

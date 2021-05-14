@@ -3,15 +3,16 @@
         {{ $title }}
     </h1>
 
+    {{ trans_choice('task.index.taskcount', count($tasks), ['value' => count($tasks)]) }}
     <div class="table-responsive">
         <table class="table table-striped task-table table-condensed">
             <thead>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Created</th>
-                <th>Edited</th>
+                <th>{{__('task.index.table.id')}}</th>
+                <th>{{__('task.index.table.name')}}</th>
+                <th>{{__('task.index.table.description')}}</th>
+                <th>{{__('task.index.table.status')}}</th>
+                <th>{{__('task.index.table.created')}}</th>
+                <th>{{__('task.index.table.edited')}}</th>
                 <th></th>
             </thead>
             <tbody>

@@ -1,5 +1,6 @@
 <?php
 
+// use Illuminate\Http\Client\Request;
 /**
  * Retrieve our Locale instance
  *

@@ -16,25 +16,25 @@
                             <div class="col-xs-12">
 
                                 @if (Request::is('tasks-all'))
-                                    All Tasks
+                                    {{__('task.index.tab.all')}}
                                 @elseif (Request::is('tasks-incomplete'))
-                                    Incomplete Tasks
+                                    {{__('task.index.tab.incomplete')}}
                                 @elseif (Request::is('tasks-complete'))
-                                   Complete Tasks
+                                   {{__('task.index.tab.complete')}}
                                 @else
-                                    No Tasks
+                                    {{__('task.index.tab.without')}}
                                 @endif
 
                                 <div class="pull-right">
 
-                                    <a href="{{ url('/tasks-all') }}" class="btn btn-sm btn-default {{ Request::is('tasks-all') ? 'active' : '' }}" type="button">
-                                        <span class="fa fa-tasks" aria-hidden="true"></span> <span class="hidden-xs">All</span>
+                                    <a href="{{ url(locale()->current().'/tasks-all') }}" class="btn btn-sm btn-default {{ Request::is('tasks-all') ? 'active' : '' }}" type="button">
+                                        <span class="fa fa-tasks" aria-hidden="true"></span> <span class="hidden-xs">{{__('task.index.tab.all')}}</span>
                                     </a>
-                                    <a href="{{ url('/tasks-incomplete') }}" class="btn btn-sm btn-default {{ Request::is('tasks-incomplete') ? 'active' : '' }}" type="button">
-                                        <span class="fa fa-square-o" aria-hidden="true"></span> <span class="hidden-xs">Incomplete</span>
+                                    <a href="{{ url(locale()->current().'/tasks-incomplete') }}" class="btn btn-sm btn-default {{ Request::is('tasks-incomplete') ? 'active' : '' }}" type="button">
+                                        <span class="fa fa-square-o" aria-hidden="true"></span> <span class="hidden-xs">{{__('task.index.tab.incomplete')}}</span>
                                     </a>
-                                    <a href="{{ url('/tasks-complete') }}" class="btn btn-sm btn-default {{ Request::is('tasks-complete') ? 'active' : '' }}" type="button">
-                                        <span class="fa fa-check-square-o" aria-hidden="true"></span> <span class="hidden-xs">Complete</span>
+                                    <a href="{{ url(locale()->current().'/tasks-complete') }}" class="btn btn-sm btn-default {{ Request::is('tasks-complete') ? 'active' : '' }}" type="button">
+                                        <span class="fa fa-check-square-o" aria-hidden="true"></span> <span class="hidden-xs">{{__('task.index.tab.complete')}}</span>
                                     </a>
 
                                 </div>
@@ -46,12 +46,12 @@
                         <div class="table-responsive">
                             <table class="table table-striped task-table table-condensed">
                                 <thead>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Status</th>
-                                    <th>Created</th>
-                                    <th>Edited</th>
+                                    <th>{{__('task.index.table.id')}}</th>
+                                    <th>{{__('task.index.table.name')}}</th>
+                                    <th>{{__('task.index.table.description')}}</th>
+                                    <th>{{__('task.index.table.status')}}</th>
+                                    <th>{{__('task.index.table.created')}}</th>
+                                    <th>{{__('task.index.table.edited')}}</th>
                                     <th></th>
                                 </thead>
                                 <tbody>
@@ -67,7 +67,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <a href="{{ url('/tasks/create') }}" class="btn btn-sm btn-primary pull-right" type="button">
-                                    <span class="fa fa-plus" aria-hidden="true"></span> New Task
+                                    <span class="fa fa-plus" aria-hidden="true"></span> {{__('task.create.new')}}
                                 </a>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Create New Task
+                        {{__('task.create.new')}}
                     </div>
                     <div class="panel-body">
 
@@ -97,7 +97,11 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-            $('table').DataTable();
+            $('table').DataTable({
+                "language": {
+                    "url": '{{locale()->get_datatable_url()}}'
+                },
+            });
         } );
     </script>
 

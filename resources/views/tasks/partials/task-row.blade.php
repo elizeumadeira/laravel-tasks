@@ -17,21 +17,11 @@
 
     <!-- Task Status -->
     <td>
-
         @if ($task->completed === 1)
-
-            <span class="label label-success">
-                Complete
-            </span>
-
+            <span class="label label-success">{{__('task.index.table.complete')}}</span>
         @else
-
-            <span class="label label-default">
-                Incomplete
-            </span>
-
+            <span class="label label-default">{{__('task.index.table.incomplete')}}</span>
         @endif
-
     </td>
 
    

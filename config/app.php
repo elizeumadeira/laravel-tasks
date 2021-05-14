@@ -81,13 +81,15 @@ return [
             'thousand_separator' => ' ',
             'date_format' => 'm/d/Y',
             'timestamp_format' => 'm/d/Y h:i:s A', // 2021/05/13 03:45:00 PM
+            'datatable_i18n_location' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json',
         ],
         'br' => [
             'name' => 'Português (Brasil)',
-            'dir'  => 'ltr',
+            'dir'  => 'rtl',
             'money_sign' => 'R$',
             'date_format' => 'd/m/Y',
-            'timestamp_format' => 'd/m/Y H:i:s'
+            'timestamp_format' => 'd/m/Y H:i:s',
+            'datatable_i18n_location' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json',
         ],
     ],
 

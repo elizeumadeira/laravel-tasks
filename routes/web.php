@@ -1,8 +1,5 @@
 <?php
 
-// dd(locale()->supported());
-
-
 Route::redirect('/', '/' . locale()->current(), 301);
 Auth::routes();
 

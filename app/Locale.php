@@ -8,10 +8,11 @@ class Locale
     protected static $default_parameters_locale = [
         'money_sign' => '$',
         'decimal_separator' => ',',
+        'dir'  => 'ltr', // rtl/ltr
         'thousand_separator' => '.',
         'date_format' => 'YYYY/mm/dd',
         'timestamp_format' => 'YYYY/mm/dd H:i:s',
-
+        'datatable_i18n_location' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json',
     ];
     /**
      * Cached copy of the configured supported locales
@@ -51,18 +52,17 @@ class Locale
 
     public function get_timestamp_format($timestamp)
     {
-        //     var_dump($timestamp);
-        //     die();
-        //     $format_string = $this->getConfiguredSupportedLocales()['timestamp_format'];
-        //     $date = \DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
-        //     return $date->format($format_string);
         $format_string = locale()->getConfiguredSupportedLocales()['timestamp_format'];
         return $timestamp->format($format_string);
     }
 
-    public function get_money_format()
+    public function get_datatable_url()
     {
+        return locale()->getConfiguredSupportedLocales()['datatable_i18n_location'];
+    }
 
+    public function get_direction(){
+        return locale()->getConfiguredSupportedLocales()['dir'];
     }
 
     /**

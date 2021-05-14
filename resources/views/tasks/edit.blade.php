@@ -11,14 +11,14 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Editing Task <strong>{{ $task->name }}</strong>
+                        {{__('task.edit.title')}} <strong>{{ $task->name }}</strong>
                     </div>
                     <div class="panel-body">
 
                         {!! Form::model($task, ['action' => ['TasksController@update', locale()->current(), $task->id], 'method' => 'PUT']) !!}
 
                         <div class="form-group row">
-                            {!! Form::label('name', 'Task Name', ['class' => 'col-sm-3 col-sm-offset-1 control-label text-right']) !!}
+                            {!! Form::label('name', __('task.create.name'), ['class' => 'col-sm-3 col-sm-offset-1 control-label text-right']) !!}
                             <div class="col-sm-6">
                                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
                             </div>
@@ -26,7 +26,7 @@
 
 
                         <div class="form-group row">
-                            {!! Form::label('description', 'Task Description', ['class' => 'col-sm-3 col-sm-offset-1 control-label text-right']) !!}
+                            {!! Form::label('description', __('task.create.description'), ['class' => 'col-sm-3 col-sm-offset-1 control-label text-right']) !!}
                             <div class="col-sm-6">
                                 {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
                             </div>
@@ -40,7 +40,7 @@
                             <div class="col-sm-6">
                                 <div class="checkbox">
                                     <label for="status">
-                                        {!! Form::checkbox('completed', 1, null, ['id' => 'status']) !!} Complete
+                                        {!! Form::checkbox('completed', 1, null, ['id' => 'status']) !!} {{__('task.index.table.complete')}}
                                     </label>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                         <!-- Add Task Button -->
                         <div class="form-group row">
                             <div class="col-sm-offset-4 col-sm-6">
-                                {{ Form::button('<span class="fa fa-save fa-fw" aria-hidden="true"></span> <span class="hidden-xxs">Save</span> <span class="hidden-xs">Changes</span>', ['type' => 'submit', 'class' => 'btn btn-success btn-block']) }}
+                                {{ Form::button('<span class="fa fa-save fa-fw" aria-hidden="true"></span> ' . __('task.edit.save'), ['type' => 'submit', 'class' => 'btn btn-success btn-block']) }}
                             </div>
                         </div>
 

@@ -17,6 +17,11 @@ class SetLocale
     public function handle($request, Closure $next)
     {
         $desiredLocale = $request->segment(1);
+        
+        if (!in_array($desiredLocale, array_keys(locale()->supported()))) {
+            return redirect(locale()->current() . '/' . $request->path());
+        }
+
         $locale = locale()->isSupported($desiredLocale) ? $desiredLocale : locale()->fallback();
         locale()->set($locale);
         return $next($request);
